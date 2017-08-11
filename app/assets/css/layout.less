@@ -1,0 +1,200 @@
+[v-cloak]{
+  display:none;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  background-size: cover;
+}
+body{
+  color:#333;
+}
+input,select{
+  font-size: 13px;
+}
+.container{
+  width: 100%;
+  padding:0px;
+  box-sizing: border-box;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.clearfix:after{
+  content: '';
+  clear: both;
+  display: block;
+}
+.btnGray{
+  float: left;
+  width: 100px;
+  height:30px;
+  border:0;
+  background: #D8D8D8;
+  border-radius: 2px;
+  cursor:pointer;
+  color:#333;
+}
+.btnBlue{
+  .btnGray;
+  float: right;
+  background:#578DED;
+  color:#fff;
+}
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+  height:10px;
+  width:8px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+  border-radius:10px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius:10px;
+  background:rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background:rgba(0,0,0,0.3);
+}
+
+header{
+  position: relative;
+  z-index: 99;
+  height: 50px;
+  background: #fff;
+  box-shadow: 0 3px 11px 0 #E1E2E9;
+
+  .logo{
+    margin-left:10px;
+    width: 107px;
+    height: 50px;
+    background: url(../images/logo.png) center no-repeat;
+    font-size: 0;
+  }
+  .headRight{
+    .headerIcon{
+      float: left;
+      margin-top: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .headerUserName{
+      float: left;
+      height: 50px;
+      line-height: 50px;
+      padding: 0 10px;
+    }
+    .layoutIcon{
+      float: left;
+      margin: 18px 10px 0 0;
+      width: 14px;
+      height: 14px;
+      background: url(../images/Shape.png) no-repeat;
+      font-size: 0;
+      cursor: pointer;
+    }
+    .line{
+      float: left;
+      margin:15px 20px 0 10px;
+      height: 24px;
+      width: 2px;
+      background: #E3E3E3;
+    }
+  }
+}
+
+/*二级页面整体布局*/
+.leftSide{
+  position: relative;
+  margin-top:10px;
+  width:180px;
+  float: left;
+  background: #fff;
+  box-shadow: 0 3px 11px 0 rgba(225,226,233,0.50);
+  color:#afb0b6;
+  font-size: 15px;
+  min-height: 800px;
+
+  .navMenu{
+    width: 100%;
+    .secSpan{
+      display: inline-block;
+      padding-left:60px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 15px;
+      background: url(../../assets/images/showNext2.png) 30px center no-repeat;
+      cursor: pointer;
+      &.active{
+        background: url(../../assets/images/hideNext2.png) 30px center no-repeat;
+      }
+    }
+    .nextCom{
+      li{
+        a{
+          float: left;
+          width: 100%;
+          height: 40px;
+          line-height: 40px;
+          cursor: pointer;
+          padding-left: 60px;
+          font-size: 13px;
+          box-sizing: border-box;
+          color:#969DAA;
+          &.active{
+            box-sizing: border-box;
+            background: #E6EBF9 url(../../assets/images/dian.png) 40px center no-repeat;
+            font-size: 13px;
+            color:#666;
+          }
+        }
+      }
+    }
+  }
+}
+.rightSide{
+  margin-top: 10px;
+  width: 100%;
+  padding-left: 190px;
+  box-sizing: border-box;
+  min-height: 100%;
+
+  .app{
+    background: #fff;
+    width: 100%;
+    margin-bottom: 88px;
+  }
+}
+
+/*遮罩*/
+.overlay{
+  display: block;
+  position: fixed;
+  z-index: 10002;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+}
+
+/*面包屑*/
+.crumbs{
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #969DAA;
+  a{
+    color: #969DAA;
+  }
+}
