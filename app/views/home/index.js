@@ -1,14 +1,11 @@
 import React,{Component} from 'react';
 import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
-
-import 'whatwg-fetch';
-import 'es6-promise';
-
 export default class home extends Component{
     constructor(){
         super();
     }
     componentDidMount(){
+        //console.log(window.fetch)
         fetch('/api/getMenus.gm')
             .then(res => console.log(res))
             .then(this.setState({
