@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import {Route,Link} from 'react-router-dom';
+import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
+
 export default class home extends Component{
     constructor(){
         super();
@@ -13,6 +14,7 @@ export default class home extends Component{
         )
         return(
             <div>
+                
                 <span>home</span>
                 <ListItemLink to="/home/car" label="car"></ListItemLink>
                 <ListItemLink to="/home/bus" label="bus"></ListItemLink>
