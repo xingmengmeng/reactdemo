@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
+import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
 import Home from '../views/home';
 import Car from '../views/home/car';
 import Bus from '../views/home/bus';
@@ -21,11 +21,13 @@ export default class RouterMap extends Component{
                         <ListItemLink to="/home" label="Home"/>
                         <ListItemLink to="/login" label="Login"/>
                     </ul>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/home" component={Home}/>
-                    <Route path="/home/bus" component={Bus}/>
-                    <Route path="/home/car" component={Car}/>    
-                    <Route path="/login" component={Login}/>   
+                    <Switch>
+                        <Route exact path="/" component={Home}/>
+                        <Route path="/home" component={Home}/>
+                        <Route path="/home/bus" component={Bus}/>
+                        <Route path="/home/car" component={Car}/>    
+                        <Route path="/login" component={Login}/> 
+                    </Switch> 
                 </div>
             </Router>
         )
