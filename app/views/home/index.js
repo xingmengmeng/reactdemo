@@ -8,6 +8,7 @@ export default class home extends Component{
             txtAay:['txt1','txt2','txt3'],
             btnTxt:0,
         }
+        this.testClick=this.testClick.bind(this);
     }
     componentDidMount(){
         //console.log(window.fetch)
@@ -16,7 +17,11 @@ export default class home extends Component{
             .then(this.setState({
                 //...
             }));
-        window.addEventListener('click',this.testClick.bind(this));
+
+        window.addEventListener('click',this.testClick);
+    }
+    componentWillUnmount(){
+        window.removeEventListener('click',this.testClick);
     }
     testClick(){
         let temLi=this.state.liAry;
