@@ -1,5 +1,9 @@
 import React,{Component} from 'react';
 import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
+
+import store from '../../store';
+import * as actions from '../../actions'; 
+
 export default class home extends Component{
     constructor(props){
         super(props);
@@ -7,8 +11,10 @@ export default class home extends Component{
             liAry:'1',
             txtAay:['txt1','txt2','txt3'],
             btnTxt:0,
+            storeTxt:33,
         }
         this.testClick=this.testClick.bind(this);
+        
     }
     componentDidMount(){
         //console.log(window.fetch)
@@ -19,6 +25,8 @@ export default class home extends Component{
             }));
 
         window.addEventListener('click',this.testClick);
+        this.setState({'storeTxt':store.getState().counter});
+        
     }
     componentWillUnmount(){
         window.removeEventListener('click',this.testClick);
@@ -27,7 +35,9 @@ export default class home extends Component{
         let temLi=this.state.liAry;
         temLi++;
         this.setState({'liAry':temLi});
-        //console.log(1);
+
+        store.dispatch(actions.inc());
+        this.setState({'storeTxt':store.getState().counter});
     }
     txtAdd(){
         this.state.btnTxt++;
@@ -65,6 +75,10 @@ export default class home extends Component{
                 <input type="button" value="点击" onClick={this.txtAdd.bind(this)}/>
                 <br/>
                 {this.state.btnTxt};
+
+                <p>
+                    store中存的值{this.state.storeTxt}
+                </p>
             </div>
         )
     }

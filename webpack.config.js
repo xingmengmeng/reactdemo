@@ -19,6 +19,7 @@ var config = {
     resolve: {
         extensions: ['', '.js'],
     },
+    devtool: "inline-source-map",
     module: {
         // 一些特定的编译规则
         loaders: [
