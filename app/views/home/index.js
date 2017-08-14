@@ -36,8 +36,8 @@ export default class home extends Component{
         temLi++;
         this.setState({'liAry':temLi});
 
-        store.dispatch(actions.inc());
-        this.setState({'storeTxt':store.getState().counter});
+        store.dispatch(actions.inc());//根据type选择做什么事情
+        this.setState({'storeTxt':store.getState().counter});//绑定改变后的状态值
     }
     txtAdd(){
         this.state.btnTxt++;
