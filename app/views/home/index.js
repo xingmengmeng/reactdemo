@@ -1,16 +1,31 @@
 import React,{Component} from 'react';
 import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
 export default class home extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+        this.state={
+            liAry:'1',
+            txtAay:['txt1','txt2','txt3'],
+            btnTxt:0,
+        }
     }
     componentDidMount(){
         //console.log(window.fetch)
-        fetch('/api/getMenus.gm')
+        fetch('/api/getMenus.gm',{credentials: 'include'})
             .then(res => console.log(res))
             .then(this.setState({
                 //...
-            }))
+            }));
+        window.addEventListener('click',this.testClick.bind(this));
+    }
+    testClick(){
+        let temLi=this.state.liAry;
+        temLi++;
+        this.setState({'liAry':temLi});
+        //console.log(1);
+    }
+    txtAdd(){
+        this.state.btnTxt++;
     }
     render() {
         //匹配当前url  设置为active
@@ -28,6 +43,23 @@ export default class home extends Component{
                 <ListItemLink to="/home/bus" label="bus"></ListItemLink>
                 {/*<Link to="/home/car">car</Link>
                 <Link to="/home/bus">bus</Link>*/}
+                <br/>{this.state.liAry}
+                {this.state.liAry==1&&
+                    <p>判断语句</p>
+                }
+                {this.state.liAry==2?(
+                    <p>值为2</p>
+                ):(
+                    <p>值不为2</p>
+                )}
+                <ul>
+                    {this.state.txtAay.map((item,index)=>
+                        <li key={index}>{item}</li>
+                    )}
+                </ul>
+                <input type="button" value="点击" onClick={this.txtAdd.bind(this)}/>
+                <br/>
+                {this.state.btnTxt};
             </div>
         )
     }
