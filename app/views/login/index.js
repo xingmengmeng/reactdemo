@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import Drag from '../../components/Drags';
 export default class login extends Component{
     constructor(){
         super();
@@ -7,6 +8,7 @@ export default class login extends Component{
         return(
             <div>
                 login
+                <Drag></Drag>
             </div>
         )
     }
