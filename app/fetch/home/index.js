@@ -1,7 +1,16 @@
-import {get} from '../index';
+import {get,post} from '../index';
 export function getMenu() {
-    return get('/api/getMenus.gm')
+    return get('/api/getMenu.gm')
 }
 export function getList(city,page) {
-    return get('/api/getMenus.gm')
+    return post('df',{
+        name: 'name',
+        login: 'hubot',
+    })
 }
+/*export function getList(city,page) {
+    return post('/api/getMenus.gm',{
+        name: 'name',
+        login: 'hubot',
+    })
+}*/
