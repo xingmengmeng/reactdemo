@@ -3,6 +3,7 @@ import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
 
 import store from '../../store';
 import * as actions from '../../actions'; 
+import {getMenu} from '../../fetch/home';//封装过来的接口
 
 export default class home extends Component{
     constructor(props){
@@ -17,13 +18,14 @@ export default class home extends Component{
         
     }
     componentDidMount(){
-        //console.log(window.fetch)
-        fetch('/api/getMenus.gm',{credentials: 'include'})
+        /*fetch('/api/getMenus.gm',{credentials: 'include'})
             .then(res => console.log(res))
             .then(this.setState({
                 //...
-            }));
-
+            }));*/
+        getMenu().then(res=>res.json()).then(data=>{
+            console.log(data.msg);
+        })
         window.addEventListener('click',this.testClick);
         this.setState({'storeTxt':store.getState().counter});
         
