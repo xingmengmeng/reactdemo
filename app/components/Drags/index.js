@@ -9,6 +9,9 @@ export default class Drags extends Component{
             y:null,
         }
     };
+    componentDidMount(){
+        document.addEventListener('mousedown',(e)=>{this.dragMouseDown(e)},false);
+    }
     handleMouseLeave(e){
 		this.setState({draging:false});
 	}
@@ -18,17 +21,17 @@ export default class Drags extends Component{
             x:e.clientX-this.props.left,
             y:e.clientY-this.props.top,
         })
+        document.onmousemove=(e)=>{this.dragMouseMove(e)};
+        document.onmouseup=(e)=>{this.dragMouseUp(e)};
     }
     dragMouseMove(e){
-        if(this.state.draging){
-            const moveX=e.clientX-this.state.x,
-                  moveY=e.clientY-this.state.y;
-            this.props.callbackParentFn(moveX,moveY);
-        }else{
-            return false;
-        }
+        const moveX=e.clientX-this.state.x,
+              moveY=e.clientY-this.state.y;
+        this.props.callbackParentFn(moveX,moveY);
     }
     dragMouseUp(e){
+        document.onmousemove=null;
+        document.onmouseup=null;
         e.preventDefault();
         this.setState({
             draging:false,
@@ -38,9 +41,7 @@ export default class Drags extends Component{
     }
     render(){
         return(
-            <div className='drag' onMouseLeave={this.handleMouseLeave.bind(this)} onMouseDown={this.dragMouseDown.bind(this)} onMouseMove={this.dragMouseMove.bind(this)} onMouseUp={this.dragMouseUp.bind(this)}>
-                
-            </div>
+            <div className='drag' onMouseLeave={this.handleMouseLeave.bind(this)}></div>
         )
     }
 }

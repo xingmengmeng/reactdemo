@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Drag from '../../components/Drags';
+//require('./index.less');
 export default class login extends Component{
     constructor(){
         super();
