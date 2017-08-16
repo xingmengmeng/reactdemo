@@ -10,13 +10,16 @@ export default class Drags extends Component{
     };
     dragMouseDown(e){
         console.log(e.clientX);
-        console.log('按下');
+        this.setState({
+            clientX:e.clientX,
+            clientY:e.clientY,
+        })
     }
     dragMouseMove(){
-        console.log('移动')
+        
     }
     dragMouseUp(){
-        console.log('抬起')
+        
     }
     render(){
         return(
