@@ -4,14 +4,14 @@ export default class login extends Component{
     constructor(){
         super();
         this.state={
-            top:100,
-            left:100,
+            top:0,
+            left:0,
         }
     }
     callbackParent(x,y){
         this.setState({
-            top:x,
-            left:y,
+            top:y,
+            left:x,
         })
     }
     render() {
