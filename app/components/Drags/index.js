@@ -3,27 +3,42 @@ require('./index.less');
 export default class Drags extends Component{
     constructor(props){
         super(props);
-        this.setState={
-            clientX:null,
-            clientY:null,
+        this.state={
+            draging:false,
+            x:null,
+            y:null,
         }
     };
+    handleMouseLeave(e){
+		this.setState({draging:false});
+	}
     dragMouseDown(e){
-        console.log(e.clientX);
         this.setState({
-            clientX:e.clientX,
-            clientY:e.clientY,
+            draging:true,
+            x:e.clientX-this.props.left,
+            y:e.clientY-this.props.top,
         })
     }
-    dragMouseMove(){
-        
+    dragMouseMove(e){
+        if(this.state.draging){
+            const moveX=e.clientX-this.state.x,
+                  moveY=e.clientY-this.state.y;
+            this.props.callbackParentFn(moveX,moveY);
+        }else{
+            return false;
+        }
     }
-    dragMouseUp(){
-        
+    dragMouseUp(e){
+        e.preventDefault();
+        this.setState({
+            draging:false,
+            x:null,
+            y:null,
+        })
     }
     render(){
         return(
-            <div className='drag' onMouseDown={this.dragMouseDown.bind(this)} onMouseMove={this.dragMouseMove.bind(this)} onMouseUp={this.dragMouseUp.bind(this)}>
+            <div className='drag' onMouseLeave={this.handleMouseLeave.bind(this)} onMouseDown={this.dragMouseDown.bind(this)} onMouseMove={this.dragMouseMove.bind(this)} onMouseUp={this.dragMouseUp.bind(this)}>
                 
             </div>
         )
