@@ -8,9 +8,6 @@ export default class Drags extends Component{
             x:null,
             y:null,
         }
-    };
-    componentDidMount(){
-        document.addEventListener('mousedown',(e)=>{this.dragMouseDown(e)},false);
     }
     handleMouseLeave(e){
 		this.setState({draging:false});
@@ -23,6 +20,7 @@ export default class Drags extends Component{
         })
         document.onmousemove=(e)=>{this.dragMouseMove(e)};
         document.onmouseup=(e)=>{this.dragMouseUp(e)};
+        e.preventDefault();
     }
     dragMouseMove(e){
         const moveX=e.clientX-this.state.x,
@@ -32,7 +30,6 @@ export default class Drags extends Component{
     dragMouseUp(e){
         document.onmousemove=null;
         document.onmouseup=null;
-        e.preventDefault();
         this.setState({
             draging:false,
             x:null,
@@ -41,7 +38,7 @@ export default class Drags extends Component{
     }
     render(){
         return(
-            <div className='drag' onMouseLeave={this.handleMouseLeave.bind(this)}></div>
+            <div className='drag' onMouseLeave={this.handleMouseLeave.bind(this)} onMouseDown={this.dragMouseDown.bind(this)}></div>
         )
     }
 }
