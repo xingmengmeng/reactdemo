@@ -14,7 +14,7 @@ export default class HomeHeader extends Component{
         )
         return(
             <div className='header'>
-                头部导航
+                <span>头部导航</span>
                 <ul className='nav'>
                     <ListItemLink to="/home" label="Home"/>
                     <ListItemLink to="/login" label="Login"/>

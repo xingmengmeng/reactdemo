@@ -64,7 +64,8 @@ export default class home extends Component{
                 <ListItemLink to="/home/bus" label="bus"></ListItemLink>
                 {/*<Link to="/home/car">car</Link>
                 <Link to="/home/bus">bus</Link>*/}
-                <br/>{this.state.liAry}
+                <br/>
+                <p>{this.state.liAry}</p>
                 {this.state.liAry==1&&
                     <p>判断语句</p>
                 }
@@ -80,7 +81,7 @@ export default class home extends Component{
                 </ul>
                 <input type="button" value="点击" onClick={this.txtAdd.bind(this)}/>
                 <br/>
-                {this.state.btnTxt};
+                <span>{this.state.btnTxt}</span>
 
                 <p>
                     store中存的值{this.state.storeTxt}

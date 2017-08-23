@@ -18,10 +18,10 @@ export default class RouterMap extends Component{
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route path="/home" component={Home}/>
-                        <Route path="/login" component={Login}/> 
+                        <Route path="/login" component={Login}/>  
                     </Switch> 
                     <Route path="/home/bus" component={Bus}/>
-                    <Route path="/home/car" component={Car}/> 
+                    <Route path="/home/car" component={Car}/>
                 </div>
             </Router>
         )
