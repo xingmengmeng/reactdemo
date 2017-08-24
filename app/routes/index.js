@@ -20,8 +20,6 @@ export default class RouterMap extends Component{
                         <Route path="/home" component={Home}/>
                         <Route path="/login" component={Login}/>  
                     </Switch> 
-                    <Route path="/home/bus" component={Bus}/>
-                    <Route path="/home/car" component={Car}/>
                 </div>
             </Router>
         )

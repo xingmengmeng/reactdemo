@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
 
 import store from '../../store';
+import RouterMap from '../../routes/home';
 import * as actions from '../../actions'; 
 import {getMenu,getList} from '../../fetch/home';//封装过来的接口
 
@@ -49,19 +50,14 @@ export default class home extends Component{
         this.state.btnTxt++;
     }
     render() {
-        //匹配当前url  设置为active
-        const ListItemLink = ({ to,label, ...rest }) => (
-            <Route path={to} children={({ match }) => (
-                <Link to={to} {...rest} className={match ? 'active' : ''}>{label}</Link>
-            )}/>
-        )
+        
         
         return(
             <div>
                 
                 <span>home</span>
-                <ListItemLink to="/home/car" label="car"></ListItemLink>
-                <ListItemLink to="/home/bus" label="bus"></ListItemLink>
+                
+                <RouterMap></RouterMap>
                 {/*<Link to="/home/car">car</Link>
                 <Link to="/home/bus">bus</Link>*/}
                 <br/>
