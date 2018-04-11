@@ -18,6 +18,7 @@ export default class HomeHeader extends Component{
                 <ul className='nav'>
                     <ListItemLink to="/home" label="Home"/>
                     <ListItemLink to="/login" label="Login"/>
+                    <ListItemLink to="/test" label="Test"/>
                 </ul>
             </div>
         )

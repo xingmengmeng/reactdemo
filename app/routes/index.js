@@ -6,6 +6,7 @@ import Home from '../views/home';
 import Car from '../views/home/car';
 import Bus from '../views/home/bus';
 import Login from '../views/login';
+import Test from '../views/Test';
 
 export default class RouterMap extends Component{
     render(){
@@ -19,6 +20,7 @@ export default class RouterMap extends Component{
                         <Route exact path="/" component={Home}/>
                         <Route path="/home" component={Home}/>
                         <Route path="/login" component={Login}/>  
+                        <Route path="/test" component={Test}/>
                     </Switch> 
                 </div>
             </Router>

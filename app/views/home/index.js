@@ -28,9 +28,9 @@ export default class home extends Component{
             //console.log(data);
             //console.log(data.msg);
         })
-        getList().then(data=>{
+        //getList().then(data=>{
             //console.log(data);
-        })
+        //})
         window.addEventListener('click',this.testClick);
         this.setState({'storeTxt':store.getState().counter});
         
